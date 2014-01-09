@@ -14,6 +14,12 @@ Some of your users don't want to hear from you or your shitty application. You c
 gem 'tldr-mail'
 ```
 
+```sh
+rails g tldr:install
+
+rake db:migrate
+```
+
 # Usage
 
 Inside your mailer you can get the unsubscribe url
@@ -26,6 +32,18 @@ class AccountMailer < ActionMailer::Base
     ...
   end
 end
+```
+
+Inside your model to test if someone is subscribed
+
+```rb
+  class User < ActiveRecord::Base
+    include Tldr::Subscriber
+  end
+
+  # elsewhere
+  user = User.find params[:id]
+  user.subscribed_to? :new_follower_notification
 ```
 
 Inside your controller if you are using Rails
