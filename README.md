@@ -1,0 +1,49 @@
+tl;dr
+====
+
+Enable unsubscribe links within your emails
+
+# Description
+
+Some of your users don't want to hear from you or your shitty application. You can add unsubscribe links to your mail views so that your users can relieve themselves of the pain you have endured on them.
+
+# Installation
+
+```rb
+# Gemfile
+gem 'tldr-mail'
+```
+
+# Usage
+
+Inside your mailer you can get the unsubscribe url
+
+```rb
+class AccountMailer < ActionMailer::Base
+  def new_follower_notification(user, follower)
+    ...
+    @unsubscribe_url = Tldr.unsubscribe_url_for(user, :new_follower_notification)
+    ...
+  end
+end
+```
+
+Inside your controller if you are using Rails
+
+```rb
+class AccountsController < ApplicationController
+  def unsubscribe
+    subscription = Tldr.unsubscribe params[:token]
+    redirect_to dashboard_path(subscription.user), notice: 'You have successfully been unsubscribed from that stupid ass email'
+  end
+end
+```
+
+# Contributing
+
+1. Clone the repository `git clone https://github.com/brilliantfantastic/tldr`
+1. Create a feature branch `git checkout -b my-awesome-feature`
+1. Codez!
+1. Commit your changes (small commits please)
+1. Push your new branch `git push origin my-awesome-feature`
+1. Create a pull request `hub pull-request -b brilliantfantastic:master -h brilliantfantastic:my-awesome-feature`
