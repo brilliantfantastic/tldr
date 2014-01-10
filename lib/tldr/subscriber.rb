@@ -8,7 +8,7 @@ module Tldr
 
     module InstanceMethods
       def subscribed_to?(email)
-        true
+        !Tldr::CancelledSubscription.exists?(subscriber_id: id, email_name: email)
       end
     end
   end
