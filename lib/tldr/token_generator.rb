@@ -10,10 +10,16 @@ module Tldr
       generate
     end
 
+    def self.decode(token)
+      result = Base64.urlsafe_decode64 token
+      values = result.split '|'
+      {subscriber_id: values[0], email_name: values[1].to_sym} if values.length == 2
+    end
+
     private
 
     def generate
-      @token = Base64.urlsafe_encode64 "#{@subscriber_id}#{@email_name}"
+      @token = Base64.urlsafe_encode64 "#{@subscriber_id}|#{@email_name}"
     end
   end
 end
