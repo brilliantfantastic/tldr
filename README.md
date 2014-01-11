@@ -22,13 +22,14 @@ rake db:migrate
 
 # Usage
 
-Inside your mailer you can get the unsubscribe url
+Inside your mailer you can generate an uninstall url.
 
 ```rb
 class AccountMailer < ActionMailer::Base
   def new_follower_notification(user, follower)
     ...
-    @unsubscribe_url = Tldr.unsubscribe_url_for(user, :new_follower_notification)
+    token = Tldr::TokenGenerator.new(user, :new_follower_notification).token
+    @unsubscribe_url = unsubscribe_url(token)
     ...
   end
 end
@@ -52,7 +53,7 @@ Inside your controller if you are using Rails
 class AccountsController < ApplicationController
   def unsubscribe
     subscription = Tldr.unsubscribe params[:token]
-    redirect_to dashboard_path(subscription.user), notice: 'You have successfully been unsubscribed from that stupid ass email'
+    redirect_to dashboard_path(subscription.values[:user]), notice: 'You have successfully been unsubscribed from that stupid ass email'
   end
 end
 ```
