@@ -7,6 +7,6 @@ class CreateCancelledSubscriptionsTable < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :cancelled_subscriptions, :subscriber_id, :email_name
+    add_index :cancelled_subscriptions, [:subscriber_id, :email_name]
   end
 end
