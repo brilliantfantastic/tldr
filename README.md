@@ -11,7 +11,7 @@ Some of your users don't want to hear from you or your shitty application. You c
 
 ```rb
 # Gemfile
-gem 'tldr-mail'
+gem 'toolong-dontread'
 ```
 
 ```sh

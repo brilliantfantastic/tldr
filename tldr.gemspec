@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'tldr/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "tldr"
+  spec.name          = "toolong-dontread"
   spec.version       = Tldr::VERSION
 
   spec.authors       = ["Jamie Wright"]
