@@ -12,7 +12,7 @@ describe 'unsubscribe a user' do
   end
 
   it 'adds the subscriber to the CancelledSubscribers' do
-    Tldr::CancelledSubscription.expects(:exists?).returns(false)
+    Tldr::CancelledSubscription.expects(:where).returns([])
     Tldr::CancelledSubscription.expects(:new).returns(@subscription)
     @subscription.expects(:save!).returns(true)
     Tldr.unsubscribe @token
@@ -24,11 +24,7 @@ describe 'unsubscribe a user' do
   end
 
   it 'does not unsubscribe twice' do
-    Tldr::CancelledSubscription.expects(:exists?).returns(false)
-    Tldr::CancelledSubscription.expects(:new).returns(@subscription)
-    @subscription.expects(:save!).returns(true).once
-    Tldr.unsubscribe @token
-    Tldr::CancelledSubscription.expects(:exists?).returns(true)
+    Tldr::CancelledSubscription.expects(:where).returns([@subscription])
     Tldr.unsubscribe @token
   end
 end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tldr (0.0.1)
+    toolong-dontread (0.0.3)
       activerecord
       rake
 
@@ -31,7 +31,7 @@ GEM
     minitest (4.7.5)
     mocha (0.14.0)
       metaclass (~> 0.0.1)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     rake (10.1.1)
     thread_safe (0.1.3)
       atomic
@@ -42,4 +42,4 @@ PLATFORMS
 
 DEPENDENCIES
   mocha
-  tldr!
+  toolong-dontread!

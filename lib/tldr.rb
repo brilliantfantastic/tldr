@@ -9,13 +9,14 @@ module Tldr
     if values
       conditions = {subscriber_id: values[:subscriber_id],
                        email_name: values[:email_name]}
-      unless Tldr::CancelledSubscription.exists? conditions
+      subscription = Tldr::CancelledSubscription.where(conditions).first
+      unless subscription
         subscription = Tldr::CancelledSubscription.new
         subscription.subscriber_id = values[:subscriber_id]
         subscription.email_name = values[:email_name]
         subscription.save!
-        subscription
       end
+      subscription
     end
   end
 end
