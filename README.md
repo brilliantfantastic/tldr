@@ -58,6 +58,14 @@ class AccountsController < ApplicationController
 end
 ```
 
+# Pushing a new gem
+
+1. Bump the version number in `tldr\lib\version.rb`
+1. `gem build tldr.gemspec`
+1. `gem push toolong-dontread-<version-number>.gem`
+1. `git tag -a gem-<version-number> -m "gem version <version-number>`
+1. `git push origin --tags`
+
 # Contributing
 
 1. Clone the repository `git clone https://github.com/brilliantfantastic/tldr`
