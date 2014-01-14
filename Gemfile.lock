@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    toolong-dontread (0.0.3)
+    toolong-dontread (0.0.4)
       activerecord
       rake
 
@@ -27,9 +27,9 @@ GEM
     atomic (1.1.14)
     builder (3.1.4)
     i18n (0.6.9)
-    metaclass (0.0.1)
+    metaclass (0.0.2)
     minitest (4.7.5)
-    mocha (0.14.0)
+    mocha (1.0.0)
       metaclass (~> 0.0.1)
     multi_json (1.8.4)
     rake (10.1.1)
