@@ -1,6 +1,10 @@
 tl;dr
 ====
 
+[![Build Status](https://travis-ci.org/brilliantfantastic/tldr.png?branch=master)](https://travis-ci.org/brilliantfantastic/tldr)
+[![Coverage Status](https://coveralls.io/repos/brilliantfantastic/tldr/badge.png)](https://coveralls.io/r/brilliantfantastic/tldr)
+[![Code Climate](https://codeclimate.com/repos/52d59e9de30ba01290003e51/badges/6fdeb28e4080e9cb9c37/gpa.png)](https://codeclimate.com/repos/52d59e9de30ba01290003e51/feed)
+
 Enable unsubscribe links within your emails
 
 # Description
